@@ -14,7 +14,7 @@ function App() {
 
   const getCharacters = async () => {
     let res = (await axios.get(`https://rickandmortyapi.com/api/character?page=${page}`)).data
-    
+
     setRickmorty(res.results);
   }
   console.log(page);
@@ -31,7 +31,10 @@ function App() {
             ))
           }
         </section>
-        <button onClick={()=>{setPage(page+1)}} className='bg-gradient-to-r mx-[40%] w-[30%] my-12 text-white to-green-600 from-slate-500 rounded-md px-8 p-3'>Next</button>
+        <div className='flex justify-center  w-[100%] px-[10%]'>
+          <button onClick={() => { setPage(page + 1) }} className='bg-gradient-to-r  w-[70%] my-12 text-white to-green-600 from-slate-500 rounded-md px-8 p-3'>Next</button>
+          <button onClick={() => { setPage(page - 1)  }} disabled = { page === 1} className='bg-gradient-to-r mx-[20%] w-[70%] my-12 text-white to-blue-600 from-slate-500 rounded-md px-8 p-3'>Prev</button>
+        </div>
       </div>
     </>
   )
