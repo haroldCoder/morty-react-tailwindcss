@@ -16,6 +16,14 @@ export default function Search({ rickmorty, setRickmorty }) {
     }
 
     useEffect(() => {
+        const newinfo = rickmorty.filter((e) => {
+            if (e.name.includes(name)) {
+                return e;
+            }
+        })
+
+        setRickmorty(newinfo);
+
         const getData = async() => {
             if (name == "") {
                 const res = (await axios.get(`https://rickandmortyapi.com/api/character`)).data;
