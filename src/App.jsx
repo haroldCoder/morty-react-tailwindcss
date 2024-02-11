@@ -10,6 +10,8 @@ function App() {
 
   useEffect(() => {
     getCharacters();
+
+    
   }, [page]);
 
   const getCharacters = async () => {
